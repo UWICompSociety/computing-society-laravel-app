@@ -19,6 +19,12 @@ class CreateProfilesTable extends Migration
             $table->string('last_name');
             $table->string('registration_number', 9)->nullable();
 
+            // social
+            $table->string('github');
+            $table->string('facebook');
+            $table->string('google_plus');
+            $table->string('twitter');
+
             // one-to-one
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
