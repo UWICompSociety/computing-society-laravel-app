@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class SessionsCtrl extends Controller
+class UserCtrl extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class SessionsCtrl extends Controller
      */
     public function update(Request $request, $id)
     {
-        // update user information
+        //
     }
 
     /**
@@ -60,6 +60,6 @@ class SessionsCtrl extends Controller
      */
     public function destroy($id)
     {
-        // use soft deletes
+        //
     }
 }

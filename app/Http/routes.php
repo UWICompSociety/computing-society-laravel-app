@@ -16,12 +16,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// app (angular templates)
-
 // api
 Route::group(['prefix' => 'api'], function()
 {
+    Route::get('index', 'AuthCtrl@index');
+    Route::get('auth', 'AuthCtrl@auth');
+    Route::post('auth', 'AuthCtrl@login');
+    Route::post('auth/register', 'AuthCtrl@register');
+    Route::get('auth/logout', 'AuthCtrl@logout');
 
+    Route::resource('users', 'UserCtrl', ['except' => ['create', 'edit']]);
 });
 
 // admin
@@ -43,4 +47,13 @@ Route::group(['prefix' => 'wave'], function() {
 
 Route::group(['prefix' => 'hackers'], function() {
 
+});
+
+// app (angular templates)
+Route::group(['prefix' => 'app'], function()
+{
+    Route::get('{path?}', function(\Request $req)
+    {
+        return File::get(public_path() . $req->path());
+    });
 });
