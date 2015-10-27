@@ -11,6 +11,36 @@
 |
 */
 
+// test
 Route::get('/', function () {
     return view('welcome');
+});
+
+// app (angular templates)
+
+// api
+Route::group(['prefix' => 'api'], function()
+{
+
+});
+
+// admin
+Route::group(['prefix' => 'admin'], function() {
+
+});
+
+Route::group(['prefix' => 'acm'], function() {
+
+});
+
+Route::group(['prefix' => 'ieee'], function() {
+
+});
+
+Route::group(['prefix' => 'wave'], function() {
+
+});
+
+Route::group(['prefix' => 'hackers'], function() {
+
 });
