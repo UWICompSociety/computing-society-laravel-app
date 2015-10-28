@@ -49,7 +49,7 @@ class AuthCtrl extends Controller
         $credentials = $req->only('email', 'password');
 
         try {
-            if (! $token = $this->jwt_auth->attempt($credentials))
+            if (! $token = JWTAuth::attempt($credentials))
                 return response()->json(['error' => 'invalid_credentials'], 401);
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
@@ -72,7 +72,7 @@ class AuthCtrl extends Controller
             return response()->json(['error' => 'unable_to_create_user'], 500);
 
         try {
-            if (! $token = $this->jwt_auth->fromUser($new_user))
+            if (! $token = JWTAuth::fromUser($new_user))
                 return response()->json(['error' => 'invalid_credentials'], 401);
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
