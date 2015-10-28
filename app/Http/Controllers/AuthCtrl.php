@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class SessionsCtrl extends Controller
+class AuthCtrl extends Controller
 {
     private $jwt_auth;
 
@@ -62,9 +62,23 @@ class SessionsCtrl extends Controller
     {
         $attributes = $request->only(['email', 'password', 'username']);
 
-        if ($user->findByUsername($attributes['username']))
-            return response()->json(['error' => 'name already taken']);
-        return response()->json(['success' => 'yay']);
+        try {
+            $new_user = $user->create($attributes);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'user_already_exists'], 401);
+        }
+
+        if (! $new_user)
+            return response()->json(['error' => 'unable_to_create_user'], 500);
+
+        try {
+            if (! $token = $this->jwt_auth->fromUser($new_user))
+                return response()->json(['error' => 'invalid_credentials'], 401);
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        return response()->json(compact('token'));
     }
 
     public function logout()
