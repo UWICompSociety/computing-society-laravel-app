@@ -2,12 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class UserCtrl extends Controller
 {
+    protected $user;
+
+    /**
+     * UserCtrl constructor.
+     * @param User $user
+     */
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,7 @@ class UserCtrl extends Controller
      */
     public function index()
     {
-        //
+        return response()->json($this->user->all());
     }
 
     /**
@@ -37,7 +49,7 @@ class UserCtrl extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json($this->user->find($id));
     }
 
     /**

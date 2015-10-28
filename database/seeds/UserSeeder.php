@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +14,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        Model::unguard();
 
         $users = [
             ['username' => 'shane', 'email' => 'shane@gmail.com', 'password' => 'password'],
@@ -25,7 +25,5 @@ class UserSeeder extends Seeder
         {
             User::create($user);
         }
-
-        Model::reguard();
     }
 }

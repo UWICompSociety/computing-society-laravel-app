@@ -12,9 +12,9 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             //
-            $table->increment('id');
+            $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('registration_number', 9)->nullable();
@@ -40,8 +40,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::table('profiles', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('profiles');
     }
 }
