@@ -1,48 +1,72 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ProfilesCtrl extends Controller
+class EventCtrl extends Controller
 {
-    protected $profile;
-    
-    function __construct(Profile $profile) {
-        $this->profile = $profile;
+    protected $event;
+
+    function __construct(Event $event) {
+        $this->event = $event;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        response()->json($this->profile->all()->toArray());
+    public function index()
+    {
+        //
     }
-    
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $profile = $this->profile->save($request->all());
-        return response()->json($profile);
+    public function store(Request $request)
+    {
+        //
     }
-    
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        return response()->json($this->profile->find($id)->first());
+    public function show($id)
+    {
+        //
     }
-    
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -50,19 +74,19 @@ class ProfilesCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        return response()->json($this->profile->find($id)->$first()->fill($request->all())->save();
+    public function update(Request $request, $id)
+    {
+        //
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        $profile->find($id)->first()->destroy();
-
-        return response()->json("done");
+    public function destroy($id)
+    {
+        //
     }
 }

@@ -19,13 +19,14 @@ Route::get('/', function () {
 // api
 Route::group(['prefix' => 'api'], function()
 {
-    Route::get('index', 'AuthCtrl@index');
+    Route::get('users', 'AuthCtrl@index');
     Route::get('auth', 'AuthCtrl@auth');
     Route::post('auth', 'AuthCtrl@login');
     Route::post('auth/register', 'AuthCtrl@register');
     Route::get('auth/logout', 'AuthCtrl@logout');
 
     Route::resource('users', 'UserCtrl', ['except' => ['create', 'edit']]);
+    Route::resource('events', 'EventCtrl', ['except' => ['create', 'edit']]);
 });
 
 // admin

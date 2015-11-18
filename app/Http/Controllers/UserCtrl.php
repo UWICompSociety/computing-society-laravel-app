@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class UserCtrl extends Controller
 {
     protected $user;
+    protected $profile;
 
     /**
      * UserCtrl constructor.
      * @param User $user
      */
-    public function __construct(User $user)
+    public function __construct(User $user, Profile $profile)
     {
         $this->user = $user;
     }
@@ -72,6 +74,6 @@ class UserCtrl extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json($this->user->);
     }
 }
