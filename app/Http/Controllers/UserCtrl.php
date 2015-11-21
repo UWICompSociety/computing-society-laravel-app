@@ -29,7 +29,7 @@ class UserCtrl extends Controller
      */
     public function index()
     {
-        return response()->json($this->user->all());
+        return response()->json($this->user->with('profile')->all());
     }
 
     /**
@@ -40,7 +40,7 @@ class UserCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json("nope");
     }
 
     /**
@@ -51,7 +51,7 @@ class UserCtrl extends Controller
      */
     public function show($id)
     {
-        return response()->json($this->user->find($id));
+        return response()->json($this->user->with('profile')->find($id));
     }
 
     /**
@@ -63,6 +63,10 @@ class UserCtrl extends Controller
      */
     public function update(Request $request, $id)
     {
+        $profile = $request->all();
+
+
+        return response()->json($this->profile);
         //
     }
 
