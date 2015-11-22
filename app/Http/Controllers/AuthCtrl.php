@@ -20,6 +20,7 @@ class AuthCtrl extends Controller
     public function __construct(JWTAuth $jwt_auth)
     {
         $this->jwt_auth = $jwt_auth;
+        $this->middleware('jwt.auth', ['except' => ['login', 'register']])
     }
 
     public function index()

@@ -10,5 +10,7 @@ class Event extends Model
 
     protected $fillable = ['name', 'description', 'start'];
 
-
+    // ==================== Relationships ====================
+    
+    public function location()
 }

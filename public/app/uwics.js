@@ -1,15 +1,12 @@
-/**
- * Created by shane on 10/27/15.
- */
 
 'use strict';
 
 (function(){
 
+
     angular
-        .module('takeout', [
-            'satellizer',
-            'ui.router'
+        .module('uwics', [
+            'satellizer', 'ui.router'
         ])
         .config(['$stateProvider', '$authProvider', '$urlRouterProvider', '$httpProvider', '$provide',
             configFunction
@@ -22,6 +19,7 @@
         function templatePath(path) {
             return 'app/templates/' + path + '.html';
         }
+
 
         // configures Satellizer to retrieve tokens from this route
         $authProvider.loginUrl = 'api/login';
@@ -45,16 +43,6 @@
                 url: '/register',
                 templateUrl: templatePath('sessions/register'),
                 controller: 'RegisterCtrl'
-            })
-            .state('profile', {
-                url: '/users/:id',
-                templateUrl: templatePath('users/show'),
-                controller: 'ShowUsersCtrl'
-            })
-            .state('users', {
-                url: '/users',
-                templateUrl: templatePath('users/index'),
-                controller: 'ListUsersCtrl'
             });
 
         // Setup for the $httpInterceptor

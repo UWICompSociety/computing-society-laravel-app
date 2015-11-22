@@ -1,0 +1,10 @@
+Master
+ip - 198.58.0.139
+hostname - administrator-OptiPlex-990
+
+Slave
+ip - 198.58.0.15
+hostname - CSENG024
+
+Gateway
+ip - 198.58.0.1

@@ -13,7 +13,7 @@
 
 // test
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 // api
@@ -27,27 +27,9 @@ Route::group(['prefix' => 'api'], function()
 
     Route::resource('users', 'UserCtrl', ['except' => ['create', 'edit']]);
     Route::resource('events', 'EventCtrl', ['except' => ['create', 'edit']]);
-});
-
-// admin
-Route::group(['prefix' => 'admin'], function() {
-
-});
-
-Route::group(['prefix' => 'acm'], function() {
-
-});
-
-Route::group(['prefix' => 'ieee'], function() {
-
-});
-
-Route::group(['prefix' => 'wave'], function() {
-
-});
-
-Route::group(['prefix' => 'hackers'], function() {
-
+    Route::resource('posts', 'PostCtrl', ['except' => ['create', 'edit']]);
+    
+    Route::resource('posts.comments', 'PostCommentCtrl', ['except' => ['create', 'edit']]);
 });
 
 // app (angular templates)
