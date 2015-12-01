@@ -3,9 +3,9 @@
 (function(){
     angular
         .module('uwics')
-        .controller('RegisterCtrl', ['$scope', '$log', RegisterCtrl]);
+        .controller('RegisterCtrl', [RegisterCtrl]);
 
-    function RegisterCtrl($scope, $log) {
-    	$log.log('register here');
+    function RegisterCtrl() {
+    	console.log('register here');
     }
 }());

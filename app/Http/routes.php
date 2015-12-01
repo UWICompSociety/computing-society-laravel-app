@@ -11,7 +11,6 @@
 |
 */
 
-// test
 Route::get('/', function () {
     return view('index');
 });
@@ -33,10 +32,10 @@ Route::group(['prefix' => 'api'], function()
 });
 
 // app (angular templates)
-Route::group(['prefix' => 'app'], function()
-{
-    Route::get('{path?}', function(\Request $req)
-    {
-        return File::get(public_path() . $req->path());
-    });
-});
+// Route::group(['prefix' => 'app'], function()
+// {
+//     Route::get('{path?}', function(\Request $req)
+//     {
+//         return File::get(public_path() . $req->path());
+//     });
+// });

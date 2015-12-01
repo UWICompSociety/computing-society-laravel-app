@@ -4,10 +4,9 @@
 
     angular
         .module('uwics')
-        .controller('FooterCtrl', ['$log', FooterCtrl]);
+        .controller('FooterCtrl', [FooterCtrl]);
 
-    function FooterCtrl($log){
-    	$log.log('in footer');
+    function FooterCtrl(){
     	console.log('in foort');
     }
 })();

@@ -3,9 +3,9 @@
 (function(){
     angular
         .module('uwics')
-        .controller('LoginCtrl', ['$scope', '$log', LoginCtrl]);
+        .controller('LoginCtrl', [LoginCtrl]);
 
-    function LoginCtrl($scope, $log) {
-    	$log.log('login here');
+    function LoginCtrl() {
+    	$console.log('LoginCtrl here');
     }
 }());

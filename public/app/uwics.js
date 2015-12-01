@@ -1,12 +1,14 @@
-
 'use strict';
 
 (function(){
 
-
     angular
         .module('uwics', [
-            'satellizer', 'ui.router'
+            'satellizer',
+            'ui.router',
+            'ngCookies',
+            'ngResources'
+
         ])
         .config(['$stateProvider', '$authProvider', '$urlRouterProvider', '$httpProvider', '$provide',
             configFunction
@@ -16,10 +18,10 @@
         ]);
 
     function configFunction($stateProvider, $authProvider, $urlRouterProvider, $httpProvider, $provide) {
+        
         function templatePath(path) {
             return 'app/templates/' + path + '.html';
         }
-
 
         // configures Satellizer to retrieve tokens from this route
         $authProvider.loginUrl = 'api/login';
@@ -27,10 +29,10 @@
 
         // default state
         $urlRouterProvider.otherwise('/');
-
+        
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '/home',
                 templateUrl: templatePath('pages/home'),
                 controller: 'HomeCtrl'
             })
